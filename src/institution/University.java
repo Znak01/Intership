@@ -7,37 +7,37 @@ import person.Student;
 
 public class University {
 
-	private String name;
-	private List<Student> students;
-	private List<Student> studentsForIntership;
+    private String name;
+    private List<Student> students;
+    private List<Student> studentsForIntership;
 	
-	public University(String name) {
+    public University(String name) {
         this.name = name;
     }
 
     public String getName() {
-		return name;
-	}
+	return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+	this.name = name;
+    }
 	
-	public List<Student> getStudents() {
-		return students;
-	}
+    public List<Student> getStudents() {
+	return students;
+    }
 
-	public List<Student> getStudentsForIntership() {
-		return studentsForIntership;
-	}
+    public List<Student> getStudentsForIntership() {
+	return studentsForIntership;
+    }
 
-	public void setStudent(Student student) {
-		if(student.getKnowledge().getLevel() > midLevel()) {
-			if(studentsForIntership == null) {
-				studentsForIntership = new ArrayList<>();
+    public void setStudent(Student student) {
+	if(student.getKnowledge().getLevel() > midLevel()) {
+		if(studentsForIntership == null) {
+			studentsForIntership = new ArrayList<>();
 	        }
-			studentsForIntership.add(student);
-		}
+		studentsForIntership.add(student);
+	}
     }
 
     public void addStudent(Student student) {
