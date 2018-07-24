@@ -16,16 +16,16 @@ public class Application {
     	
         University university = new University("CH.U.I.");
         for (Student student : students) {
-			university.addStudent(student);
-		}
+		university.addStudent(student);
+	}
         for (Student student : students) {
-			university.setStudent(student);
-		}
+		university.setStudent(student);
+	}
 
         Internship internship = new Internship("Interlink");
         for (Student student : university.getStudentsForIntership()) {
         	internship.setStudent(student);
-		}
+	}
         System.out.println("List of internship's students:");
         System.out.println(internship.getStudents());
     }
