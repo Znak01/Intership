@@ -19,7 +19,4 @@ public class RandomStudents implements StudentFactory {
 		}
 		return students;
 	}
-
-	
-	
 }

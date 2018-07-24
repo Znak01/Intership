@@ -3,16 +3,13 @@ package institution;
 import java.util.ArrayList;
 import java.util.List;
 
-import institution.interlink.Internship;
 import person.Student;
 
 public class University {
-    
-	private static int MIDLEVEL = 5;
-	
+
 	private String name;
 	private List<Student> students;
-	private Internship interShip;
+	private List<Student> studentsForIntership;
 	
 	public University(String name) {
         this.name = name;
@@ -30,18 +27,16 @@ public class University {
 		return students;
 	}
 
-
-	public Internship getInterShip() {
-		return interShip;
-	}
-
-	public void setInterShip(Internship interShip) {
-		this.interShip = interShip;
+	public List<Student> getStudentsForIntership() {
+		return studentsForIntership;
 	}
 
 	public void setStudent(Student student) {
-		if(student.getKnowledge().getLevel() > MIDLEVEL) {
-			interShip.setStudent(student);
+		if(student.getKnowledge().getLevel() > midLevel()) {
+			if(studentsForIntership == null) {
+				studentsForIntership = new ArrayList<>();
+	        }
+			studentsForIntership.add(student);
 		}
     }
 
@@ -50,5 +45,17 @@ public class University {
         	students = new ArrayList<>();
         }
         students.add(student);
+    }
+    
+    public int midLevel() {
+    	int sumLevel = 0;
+    	int countOfStudents = students.size();
+    	
+    	for (Student student : students) {
+    		sumLevel += student.getKnowledge().getLevel();
+		}
+    	int midLevel = sumLevel/countOfStudents;
+    	
+    	return midLevel;
     }
 }

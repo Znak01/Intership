@@ -18,20 +18,15 @@ public class Application {
         for (Student student : students) {
 			university.addStudent(student);
 		}
-        
-//        university.addStudent(new Student("Andrew Kostenko"));
-//        university.addStudent(new Student("Julia Veselkina"));
-//        university.addStudent(new Student("Maria Perechrest"));
-
-        university.setInterShip(new Internship("Interlink"));
-        for (Student student : university.getStudents()) {
+        for (Student student : students) {
 			university.setStudent(student);
 		}
+
+        Internship internship = new Internship("Interlink");
+        for (Student student : university.getStudentsForIntership()) {
+        	internship.setStudent(student);
+		}
         System.out.println("List of internship's students:");
-        System.out.println(university.getInterShip().getStudents());
-        
-//        Internship internship = new Internship("Interlink");
-//        System.out.println("List of internship's students:");
-//        System.out.println(internship.getStudents());
+        System.out.println(internship.getStudents());
     }
 }
