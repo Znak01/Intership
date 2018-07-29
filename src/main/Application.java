@@ -18,13 +18,10 @@ public class Application {
         for (Student student : students) {
 		university.addStudent(student);
 	}
-        for (Student student : students) {
-		university.setStudent(student);
-	}
 
         Internship internship = new Internship("Interlink");
-        for (Student student : university.getStudentsForIntership()) {
-        	internship.setStudent(student);
+        for (Student student : university.getStudents()) {
+        	university.setStudent(student, internship);
 	}
         System.out.println("List of internship's students:");
         System.out.println(internship.getStudents());
